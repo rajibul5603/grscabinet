@@ -25,4 +25,5 @@ public class GrscabinetFrontendController {
     public String editGrscabinetComplain(@PathVariable String id) {
         return "edit";
     }
+
 }
