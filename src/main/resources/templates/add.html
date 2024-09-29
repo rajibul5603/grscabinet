@@ -6,9 +6,8 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Including jQuery for simplicity -->
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Including jQuery for simplicity -->
 
 </head>
 <body>
@@ -22,7 +21,13 @@
     <a href="/complains" type="button" class="btn btn-primary pull-right">&#9754; Back</a>
   </p>
 
-  <form id="complainAddForm"  >
+  <form id="complainAddForm" action="#">
+
+    <div class="mb-3">
+      <label for="id" class="form-label">id</label>
+      <input type="number" name="id" class="form-control" id="id" placeholder="Complain ID">
+    </div>
+
     <div class="mb-3">
       <label for="subject" class="form-label">Subject</label>
       <input type="text" name="subject" class="form-control" id="subject" placeholder="Complain subject">
@@ -38,18 +43,21 @@
     </div>
 
     <div class="mb-3">
-      <label for="phone" class="form-label">Subject</label>
+      <label for="phone" class="form-label">phone</label>
       <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter your phone Number">
     </div>
     <button id="saveComplainBtn" class="btn btn-success" type="submit">Submit</button>
   </form>
 </div>
 
+
+
 <script type="text/javascript">
   $(document).ready(function() {
 
       // Attach a click event to the "Save" button
-      $('#saveComplainBtn').click(function() {
+      $('#saveComplainBtn').click(function(event) {
+          event.preventDefault();
 
           // Prepare the data to be sent in the AJAX request
           const complainData = {
@@ -68,6 +76,7 @@
               data: JSON.stringify(complainData),
 
               success: function(response) {
+                  console.log(response);
                   alert('Complain added successfully!');
                   window.location.href = "/complains";
               },
