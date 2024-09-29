@@ -1,11 +1,15 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="fragments/header :: headContent"></head>
+<head>
+    <th:block th:replace="~{thymeleaf/fragments/commonhead :: baseContent}"></th:block>
+    <!-- other blocks -->
+    <title th:text = ${sectionHeader}> </title>
+
+</head>
 
 <body>
+<th:block th:replace="~{thymeleaf/fragments/topheader :: topheaderFragment}"></th:block>
 
-
-<div th:replace="fragments/header :: headerFragment"></div>
 <div class="container-fluid">
     <div class="row">
         <!-- start of navigation -->

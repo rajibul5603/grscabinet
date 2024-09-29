@@ -2,7 +2,7 @@ package com.rajibul.grscabinet.controller;
 
 
 import com.rajibul.grscabinet.service.GrscabinetService;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/thymeleaf/complains")
-@Slf4j
+
 public class GrscabinetThymleafController {
 
     @Autowired
